@@ -9,27 +9,22 @@ Output: 2
 Time complexity O(n) 
 
 */
-//** Using freq Array */ 
+//** Set */ 
 #include<iostream>
 #include<string>
-#include<unordered_map>
+#include<unordered_set>
 
 using namespace std;
 
 int main(){
     string s;
-    int freq[26] = {0};
-    int count = 0;
+    unordered_set<char> mp;
     getline(cin, s);
     for(char c : s){
-        if( c >= 'a' && c <= 'z'){
-            freq[c - 'a']++;
+        if(islower(c)){
+            mp.insert(c);
         }
     }
-    for(int i = 0; i < 26; i++){
-        if(freq[i] > 0) count++;
-    }
-
-    cout << count << "\n";    
+    cout << mp.size() << "\n";
     return 0;
 }
